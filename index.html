@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Paulo Henrique">
+
+    <title>eVita - Dados de Busca no Aplicativo</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png">
+  </head>
+
+  <body>
+    <header class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="./index.html" class="navbar-brand"><img src="images/logo.png" /></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Conta</a></li>
+          <li><a href="#">Sair</a></li>
+      </ul>
+      </div>
+    </header>
+
+    <div class="all-content"> 
+      <section id="color-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1><span class="glyphicon glyphicon-stats"></span> Dados de Busca no Aplicativo</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="choose-chart-type" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2><span class="glyphicon glyphicon-stats"></span> Escolha o tipo de gráfico:</h2>
+              <button id="btn-choose-1" type="button" class="btn btn-primary btn-xl">Comparação entre Medicamentos</button>
+              <button id="btn-choose-2" type="button" class="btn btn-primary btn-xl">Medicamentos de uma Categoria</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="choose-medicines" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <h2><span class="glyphicon glyphicon-sort-by-alphabet"></span> Escolha os medicamentos para comparar:</h2>
+              <div class="ui-widget">
+                <input id="medicine-search" class="form-control" placeholder="Digite aqui o nome do medicamento"></input>
+                <button id="btn-add-medicine" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span> Adicionar</button>
+                <select multiple id="medicine-list" class="form-control"></select>
+                <button id="btn-follow-1" type="button" class="btn btn-primary btn-xl">Seguir <span class="glyphicon glyphicon-chevron-right"></span></button>
+              </div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="choose-category" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <h2><span class="glyphicon glyphicon-sort-by-alphabet"></span> Escolha uma categoria de medicamentos:</h2>
+              <div class="ui-widget">
+                <select id="category-list" class="form-control">
+                  <option>Ansiolíticos e Hipnóticos</option>
+                  <option>Antidepressivos</option>
+                  <option>Anticonvulsivantes</option>
+                  <option>Antipsicóticos e Neurolépticos</option>
+                  <option>Antiparkisonianos</option>
+                  <option>Diuréticos Tiazídicos</option>
+                  <option>Antiinflamatórios Não Esteróides</option>
+                  <option>Antialérgicos</option>
+                  <option>Penicilinas</option>
+                  <option>Sulfas</option>
+                  <option>Antibacteriano e Cicatrizante</option>
+                </select>
+                <button id="btn-follow-2" type="button" class="btn btn-primary btn-xl">Seguir <span class="glyphicon glyphicon-chevron-right"></span></button>
+              </div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="choose-location" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <h2><span class="glyphicon glyphicon-globe"></span> Informe uma localização:</h2>
+              <div class="ui-widget">
+                <input id="medicine-search" class="form-control" placeholder="Digite aqui o CEP que deseja"></input>
+                <button id="btn-search-cep" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span> Procurar</button>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.3130808272153!2d-34.92309545!3d-8.06951475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1933ee2d2ef9%3A0x1783002f0f0c2294!2sRecife+-+PE!5e0!3m2!1spt-BR!2s!4v1401418978952" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+                <button id="btn-generate" type="button" class="btn btn-primary btn-xl"><span class="glyphicon glyphicon-ok"></span> Gerar Gráfico</button>
+              </div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="medicine-chart" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <h2><span class="glyphicon glyphicon-sort"></span> Comparação entre medicamentos:</h2>
+              <div id="chart_div" style="width: 780px; height: 500px;"></div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="category-chart" class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+              <h2><span class="glyphicon glyphicon-sort"></span> Categoria de medicamentos:</h2>
+              <div id="piechart" style="width: 780px; height: 500px;"></div>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <a href="http://www.procuratecnologia.com"><img class="logo" src="images/copyright.png" title="Desenvolvido por Procura Tecnologia" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+    <script type="text/javascript">
+      jQuery.fn.visible = function() {
+        return this.css('visibility', 'visible');
+      };
+
+      jQuery.fn.invisible = function() {
+        return this.css('visibility', 'hidden');
+      };
+
+      $("#choose-medicines").invisible();
+      $("#choose-category").invisible();
+      $("#choose-location").invisible();
+      $("#medicine-chart").invisible();
+      $("#category-chart").invisible();
+
+      $("#btn-choose-1").click(function(){
+        $("#choose-chart-type").hide();
+        $("#choose-medicines").visible();
+        $("#choose-category").hide();
+
+        chartType = "med";
+      });
+
+      $("#btn-choose-2").click(function(){
+        $("#choose-chart-type").hide();
+        $("#choose-medicines").hide();
+        $("#choose-category").visible();
+
+        chartType = "cat";
+      });
+
+      $("#btn-add-medicine").click(function(){
+        $("#medicine-list").append(new Option($("#medicine-search").val(), $("#medicine-search").val(), false, false));
+      });
+
+      $("#btn-follow-1").click(function(){
+        $("#choose-medicines").hide();
+        $("#choose-category").hide();
+        $("#choose-location").visible();
+      });
+
+      $("#btn-follow-2").click(function(){
+        $("#choose-medicines").hide();
+        $("#choose-category").hide();
+        $("#choose-location").visible();
+      });
+
+      $("#btn-generate").click(function(){
+        $("#choose-location").hide();
+
+        if(chartType == "med") {
+          $("#medicine-chart").visible();
+          $("#category-chart").hide();
+        }
+        else if(chartType == "cat") {
+          $("#medicine-chart").hide();
+          $("#category-chart").visible();
+        }
+      });
+
+      $(function() {
+        var chartType = "";
+        var availableTags = [
+          "Ciprofloxacino",
+          "Flagyl",
+          "Pantozol",
+          "Lantus U 100 Ui/Ml",
+          "Tylex",
+          "Novalgina Oral",
+          "Apresolina",
+          "Candicort Creme e Pomada",
+          "Floratil",
+          "Zyprexa",
+          "Aldomet",
+          "Furomida",
+          "Stavigile",
+          "Tecnomet",
+          "Clonazepam",
+          "Finasterida 1 Mg",
+          "Rivotril",
+          "Dipirona",
+          "Decadronal",
+          "Carvedilol",
+          "Morfenil",
+          "Dimorf Lc"
+        ];
+        $("#medicine-search").autocomplete({
+          source: availableTags
+        });
+      });
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Data', 'Finasterida 1 Mg', 'Rivotril', 'Morfenil'],
+          ['28/05/2014',  1000,      400,   150],
+          ['29/05/2014',  1170,      460,   300],
+          ['30/05/2014',  660,       1120,  10],
+          ['31/05/2014',  1030,      540,   100]
+        ]);
+
+        var options = {
+          title: 'Busca por Medicamentos no CEP 50070-123',
+          hAxis: {title: 'Data',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Medicamento', 'Número de Consultas'],
+          ['Carbolitium',     11],
+          ['Amplictil',      20],
+          ['Haldol Decanoato',  22],
+          ['Neozine', 2],
+          ['Neuleptil',    70]
+        ]);
+
+        var options = {
+          title: 'Busca por Medicamentos Antipsicóticos e Neurolépticos no CEP 50070-123'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>

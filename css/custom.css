@@ -1,0 +1,61 @@
+#color-header {
+	background: #0098cb;
+	color: #ffffff;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+.navbar-fixed-bottom {
+	min-height: 26px !important;
+}
+
+.navbar-brand {
+	margin-top: -5px;
+}
+
+.navbar-brand img {
+	height: 100%;
+}
+
+.content h2 {
+	color: #006283;
+	margin-bottom: 30px;
+}
+
+#choose-chart-type button {
+	display: block;
+	margin: 0 auto;
+	padding: 20px;
+	margin-bottom: 20px;
+	font-size: 24px !important;
+}
+
+.breadcrumb>li+li:before {
+	content: "›";
+}
+
+.content input, .content button, .content select, .content iframe {
+	margin-bottom: 20px;
+}
+
+.content {
+	margin-bottom: 26px;
+}
+
+.btn-xl {
+    padding: 12px 22px;
+    font-size: 22px !important;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+
+.all-content {
+	max-height: 900px;
+	overflow: hidden;
+}
